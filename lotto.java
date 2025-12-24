@@ -1,15 +1,15 @@
 import java.util.*;
 
+
 /**
  * Write a description of class lotto here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Craig Huggins
+ * @version 1.0
  */
 public class lotto
 {
     // instance variables - replace the example below with your own
-    //private int x;
     private ArrayList<Integer> lottoNumbers;
 
     /**
@@ -21,19 +21,19 @@ public class lotto
         lottoNumbers = new ArrayList<>();
         Random myrand = new Random();
         for (int i=0; i<6; i++) {
-            lottoNumbers.add(myrand.nextInt(46));
+            lottoNumbers.add(myrand.nextInt(46 - 1 + 1) + 1);
         }
+        Collections.sort(lottoNumbers);
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public void printNewSet() {
         for (int number : lottoNumbers) {
             System.out.println(number);
         }
+    }
+
+    public static void main(String[] args) {
+        lotto newLotto = new lotto();
+        newLotto.printNewSet();
     }
 }
